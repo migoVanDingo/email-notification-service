@@ -1,0 +1,4 @@
+.email
+record.log
+*.env
+*.pyc
