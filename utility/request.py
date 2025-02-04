@@ -4,7 +4,7 @@ import requests
 from flask import current_app, request
 from utility.constant import Constant
 from utility.error import ThrowError
-from utility.payload.request_payload import RequestPayload
+from utility.request_payload import RequestPayload
 
 class IInsert:
     table_name: str
