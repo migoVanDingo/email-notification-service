@@ -2,6 +2,8 @@ import os
 from flask import current_app
 import sendgrid
 from sendgrid.helpers.mail import *
+from dotenv import load_dotenv
+load_dotenv()
 
 class Mailer:
 
@@ -16,7 +18,7 @@ class Mailer:
         subject=self.payload['subject'],
         html_content=self.payload['html_content'])
         try:
-            sg = sendgrid.SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
+            sg = sendgrid.SendGridAPIClient(os.environ['SENDGRID_API_KEY'])
             response = sg.send(message)
             current_app.logger.info(response.status_code)
             current_app.logger.info(response.body)
